@@ -2,5 +2,5 @@ __pycache__/
 *.pyc
 .venv/
 .env
-knowledge_intelligence.db
+crm_engine.db
 .streamlit/secrets.toml

@@ -1,50 +1,23 @@
-# Case Study — Enterprise AI Knowledge & Document Intelligence
+# Case Study — AI CRM & Revenue Automation Engine
 
 ## Challenge
-
-Operational teams frequently need answers from internal policies, SOPs, contracts, onboarding material, and procedural documents.
-
-Traditional search requires employees to know the correct file and keyword. Generic AI assistants create another risk: plausible answers that are not actually supported by company documentation.
+Revenue Operations teams repeatedly interpret lead context, prioritize prospects, draft outreach, remember follow-ups, understand replies, update CRM stages, and prepare pipeline reports.
 
 ## Solution
-
-Built an enterprise knowledge intelligence system using Retrieval-Augmented Generation.
-
-The application:
-- ingests common enterprise file formats,
-- extracts and chunks text,
-- retrieves question-relevant passages,
-- sends only those passages to the LLM,
-- forces source citations,
-- reports confidence,
-- exposes the evidence,
-- refuses unsupported questions,
-- logs each query for auditability.
+Built an AI-assisted revenue workflow that:
+1. scores leads from 0–100,
+2. assigns Hot / Warm / Cold temperature,
+3. summarizes fit and business pain,
+4. drafts personalized outreach,
+5. requires human approval,
+6. schedules follow-up,
+7. classifies prospect replies,
+8. recommends CRM stage changes,
+9. calculates weighted revenue pipeline,
+10. logs automation activity.
 
 ## Business value
+Reduces repetitive RevOps work while keeping human control over prospect communication and commercial decisions.
 
-The system demonstrates how AI can reduce knowledge-search time while improving traceability and reducing hallucination risk.
-
-Typical use cases include:
-- policy Q&A
-- customer-support SOP lookup
-- compliance guidance
-- onboarding assistance
-- operations procedures
-- internal knowledge search
-
-## Engineering / AI concepts demonstrated
-
-- Retrieval-Augmented Generation
-- document ingestion
-- chunking strategies
-- metadata-aware retrieval
-- semantic embeddings
-- lexical fallback retrieval
-- LLM grounding
-- prompt guardrails
-- citations
-- confidence scoring
-- evaluation benchmarks
-- audit logging
-- resilient AI system design
+## Technical value
+Python application development · LLM API integration · structured JSON outputs · prompt design · SQLite persistence · workflow state · commercial scoring · reply-intent analysis · dashboarding · audit logging · human-in-the-loop AI.

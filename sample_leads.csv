@@ -1,0 +1,4 @@
+company,contact_name,email,role,industry,company_size,country,source,estimated_value,notes
+ApexFlow,Sarah Miller,sarah@example.com,VP Sales,SaaS,201-500,Germany,LinkedIn,20000,"Inbound response is slow and reps forget follow-ups. Leadership wants automated qualification and meeting routing."
+NovaHealth,James Reed,james@example.com,Operations Director,Healthcare,501-1000,Australia,Referral,28000,"Teams manually copy information between forms, spreadsheets and internal systems and want to reduce repetitive work."
+BrightLedger,Sofia Weber,sofia@example.com,Finance Manager,Finance,51-200,Netherlands,Website,14000,"Interested in reporting automation and workflow standardization but has no immediate deadline."

@@ -1,117 +1,64 @@
-# Enterprise AI Knowledge & Document Intelligence
+# AI Revenue Operations Workspace
 
-A portfolio-grade Retrieval-Augmented Generation (RAG) system for enterprise policies, SOPs, handbooks, and internal knowledge.
+[![Live App](https://img.shields.io/badge/Live%20App-Streamlit-FF4B4B?logo=streamlit&logoColor=white)](https://ai-crm-revenue-automation-engine-szzgzixhhpdwstdochywrk.streamlit.app/)
+![Python](https://img.shields.io/badge/Python-3.12+-3776AB?logo=python&logoColor=white)
+![Gemini](https://img.shields.io/badge/AI-Gemini-4285F4)
 
-## Business problem
+An AI-assisted revenue operations workspace for lead qualification, outreach preparation, reply intelligence and pipeline visibility.
 
-Companies store critical knowledge across PDFs, handbooks, policies, SOPs, spreadsheets, and documentation. Employees often waste time searching manually, and generic AI assistants can hallucinate answers that are not supported by company policy.
+## Problem
 
-This system demonstrates an enterprise-safe approach:
+Revenue teams repeatedly review new leads, decide priority, draft outreach, remember follow-ups, interpret replies and update pipeline stages. Manual handling slows response time and creates inconsistent execution.
 
-**Documents → extraction → chunking → retrieval → grounded LLM answer → citations → confidence → audit trail**
+## Workflow
 
-## Core features
+`Lead → AI qualification → score → Hot/Warm/Cold → outreach draft → human approval → follow-up → reply analysis → pipeline update → forecast`
 
-- PDF / DOCX / TXT / MD / CSV ingestion
-- text extraction
-- document chunking with overlap
-- local hybrid retrieval
-- optional Gemini semantic embeddings
-- Gemini answer synthesis
-- answers restricted to retrieved company evidence
-- inline source-number citations
-- confidence scoring
-- unsupported-question refusal
-- source/evidence viewer
-- document inventory
-- knowledge analytics
-- benchmark grounding tests
-- query logging
-- audit trail
-- zero-cost fallback mode
-- recruiter-ready demo documents
+## Key capabilities
 
-## Architecture
+- 0–100 lead scoring and Hot/Warm/Cold segmentation
+- Business-fit and pain-point analysis
+- Personalized outreach drafting
+- Human approval before customer-facing actions
+- Follow-up scheduling
+- Reply intent and sentiment analysis
+- CRM-style pipeline stage management
+- Opportunity-value and weighted-pipeline reporting
+- CSV export and audit logging
+- Rules-based fallback when the LLM is unavailable
+
+## Stack
+
+Python · Streamlit · Gemini API · SQLite · pandas
+
+## Design decisions
+
+**Commercial relevance.** AI outputs are connected to concrete pipeline decisions rather than presented as a standalone chatbot.
+
+**Human approval.** Customer-facing communication remains reviewable before it changes workflow state.
+
+**Persistent workflow state.** Lead data, pipeline stages, replies and audit events are stored so the system behaves like an operations tool, not a one-off prompt.
+
+## Run locally
+
+```bash
+python -m venv .venv
+# Windows
+.venv\Scripts\activate
+# macOS/Linux
+source .venv/bin/activate
+
+pip install -r requirements.txt
+streamlit run app.py
+```
+
+Optional Gemini configuration:
 
 ```text
-Enterprise documents
-        ↓
-Text extraction
-        ↓
-Chunking
-        ↓
-Knowledge index
-        ↓
-Question
-        ↓
-Hybrid / semantic retrieval
-        ↓
-Top evidence passages
-        ↓
-Gemini grounded-answer layer
-        ↓
-Answer + citations + confidence
-        ↓
-Query log + audit trail
+GEMINI_API_KEY=your_key_here
+GEMINI_MODEL=gemini-2.5-flash-lite
 ```
 
-## Why this is more than a chatbot
+## Production roadmap
 
-The assistant does not answer from general model memory.
-
-It:
-1. retrieves relevant enterprise evidence,
-2. restricts the model to that evidence,
-3. requires citations,
-4. returns "I don't know based on the indexed documents" when evidence is insufficient,
-5. exposes retrieved passages for human verification.
-
-## Tech stack
-
-- Python
-- Streamlit
-- Gemini API
-- optional Gemini embeddings
-- NumPy
-- SQLite
-- pypdf
-- python-docx
-- GitHub
-- Streamlit Community Cloud
-
-## Zero-cost mode
-
-Without an API key, the system uses:
-- local hybrid retrieval
-- extractive grounded answers
-
-With the same Gemini key used by the other portfolio projects, it adds:
-- LLM grounded answer synthesis
-- semantic embeddings when the configured embedding model is available
-
-## Streamlit secrets
-
-```toml
-GEMINI_API_KEY = "your-key"
-GEMINI_MODEL = "gemini-2.5-flash-lite"
-GEMINI_EMBEDDING_MODEL = "gemini-embedding-001"
-```
-
-If the embedding endpoint/model is unavailable, the application automatically falls back to local retrieval rather than failing.
-
-## Production extensions
-
-A real organization could extend this architecture with:
-
-- PostgreSQL + pgvector / Supabase
-- Qdrant / Pinecone / Weaviate
-- SSO and role-based access
-- SharePoint / Google Drive / Confluence connectors
-- n8n ingestion workflows
-- document versioning
-- access-control-aware retrieval
-- PII redaction
-- reranking models
-- scheduled evaluation suites
-- feedback-based retrieval improvement
-- observability and latency/cost monitoring
+A production version could connect HubSpot/Salesforce, Gmail/Outlook, calendars and lead sources through APIs or n8n, with authentication, scheduled jobs and conversion analytics.
